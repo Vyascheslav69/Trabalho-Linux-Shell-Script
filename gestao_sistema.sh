@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# ==============================================================================
-# Script: gestao_sistema.sh
-# Tema: Automação de Rotinas de Administração em Linux
-# Empresa Fictícia: UNIP Solutions Ltda.
-# ==============================================================================
-
 # Verifica se o script está sendo executado como root (necessário para useradd)
 # O comando 'id -u' retorna 0 se o usuário for o root.
 if [ "$(id -u)" -ne 0 ]; then
@@ -70,7 +64,8 @@ while true; do
             
             # Laço que roda até que o usuário digite "sair"
             while true; do
-                read -p "Digite o nome do novo usuário (ou digite 'sair' para encerrar): " nome_usuario
+                read -p "Digite o nome do novo usuário (ou digite 'sair' para encerrar): " nome_usuario"
+                nome_usuario="${nome_usuario// /_}"
                 
                 # Estrutura condicional 'if'
                 if [ "$nome_usuario" == "sair" ]; then
@@ -85,8 +80,9 @@ while true; do
                     
                     # Cria um arquivo com informações fictícias na home do usuário
                     ARQ_INFO="/home/$nome_usuario/info.txt"
-                    echo "Cargo: Analista de Sistemas Fictício" > "$ARQ_INFO"
-                    echo "Departamento: TI UNIP Solutions" >> "$ARQ_INFO"
+                    echo "$nome_usuario:" > "$ARQ_INFO"
+                    echo "Cargo - Analista de Sistemas" >> "$ARQ_INFO"
+                    echo "Departamento - TI 202" >> "$ARQ_INFO"
                     
                     # Salva o nome do usuário cadastrado na lista para usar no item 3
                     echo "$nome_usuario" >> "$ARQ_USUARIOS"
