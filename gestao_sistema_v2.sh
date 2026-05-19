@@ -11,7 +11,7 @@ ARQ_USUARIOS="$BASE_DIR/usuarios_cadastrados.txt"
 while true; do
     clear
     echo "========================================================="
-    echo "          SISTEMA DE GESTÃO - UNIP SOLUTIONS             "
+    echo "         - SISTEMA DE GESTÃO -- UNIP SOLUTIONS -         "
     echo "========================================================="
     echo "1. Criação de Estrutura de Diretórios"
     echo "2. Cadastro de Usuários"
